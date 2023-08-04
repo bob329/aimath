@@ -1,13 +1,13 @@
 #16-2.py
 
-#ÒıÈëpandasÊı¾İ¹¤¾ß¼¯
+#å¼•å…¥pandasæ•°æ®å·¥å…·é›†
 import pandas as pd
-#ÒıÈë»úÆ÷Ñ§Ï°¿âÖĞµÄ¹éÒ»»¯º¯Êı
+#å¼•å…¥æœºå™¨å­¦ä¹ åº“ä¸­çš„å½’ä¸€åŒ–å‡½æ•°
 from sklearn.preprocessing import normalize
-#ÒıÈë²ã´Î¾ÛÀàº¯Êı¡¢»¹ÓĞÊ÷×´Í¼º¯Êı
+#å¼•å…¥å±‚æ¬¡èšç±»å‡½æ•°ã€è¿˜æœ‰æ ‘çŠ¶å›¾å‡½æ•°
 from scipy.cluster.hierarchy import linkage, dendrogram
 import matplotlib.pyplot as plt
-#ÒıÈë×ø±êÖáÏÔÊ¾¿ØÖÆ¿â
+#å¼•å…¥åæ ‡è½´æ˜¾ç¤ºæ§åˆ¶åº“
 from matplotlib.ticker import MultipleLocator
 
 %matplotlib inline
@@ -16,10 +16,10 @@ scores_df = pd.read_csv('./datasets/eurovision-2016-televoting.csv', index_col=0
 country_names = list(scores_df.index)
 scores_df.head()
 
-#È±Ê§ÖµÌî³ä£¬Ã»ÓĞµÄ¾ÍÏÈ°´Âú·ÖËã°É
+#ç¼ºå¤±å€¼å¡«å……ï¼Œæ²¡æœ‰çš„å°±å…ˆæŒ‰æ»¡åˆ†ç®—å§
 scores_df = scores_df.fillna(12)
 
-#¹éÒ»»¯
+#å½’ä¸€åŒ–
 samples = normalize(scores_df.values)
 
 plt.figure(figsize=(10,12),dpi=80)

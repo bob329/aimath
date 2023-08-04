@@ -1,26 +1,26 @@
 #16-1.py
 
-#ÒıÈë²ã´Î¾ÛÀàº¯Êı¡¢»¹ÓĞÊ÷×´Í¼º¯Êı
+#å¼•å…¥å±‚æ¬¡èšç±»å‡½æ•°ã€è¿˜æœ‰æ ‘çŠ¶å›¾å‡½æ•°
 from scipy.cluster.hierarchy import linkage, dendrogram
 import matplotlib.pyplot as plt
-#ÒıÈë×ø±êÖáÏÔÊ¾¿ØÖÆ¿â
+#å¼•å…¥åæ ‡è½´æ˜¾ç¤ºæ§åˆ¶åº“
 from matplotlib.ticker import MultipleLocator
-#ÒıÈëÊı¾İ²Ù×÷¹¤¾ß¼¯
+#å¼•å…¥æ•°æ®æ“ä½œå·¥å…·é›†
 import pandas as pd
 
 %matplotlib inline
-#¶ÁÈ¡Êı¾İ¼¯
+#è¯»å–æ•°æ®é›†
 seeds_df = pd.read_csv('./datasets/seeds-less-rows.csv')
 seeds_df.head()
 
-#È¥³ı±êÊ¶ĞĞ¼°Àà±ğÁĞ
+#å»é™¤æ ‡è¯†è¡ŒåŠç±»åˆ«åˆ—
 varieties = list(seeds_df.pop('grain_variety'))
 samples = seeds_df.values
 
-#½øĞĞ²ã´Î¾ÛÀà
+#è¿›è¡Œå±‚æ¬¡èšç±»
 mergings = linkage(samples, method='complete')
 
-#Ê÷×´Í¼½á¹û
+#æ ‘çŠ¶å›¾ç»“æœ
 plt.figure(figsize=(10,6),dpi=80)
 ax=plt.subplot(111)
 dendrogram(mergings,
