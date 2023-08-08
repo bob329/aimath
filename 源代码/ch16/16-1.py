@@ -31,3 +31,11 @@ dendrogram(mergings,
 yminorLocator = MultipleLocator(0.2) 
 ax.yaxis.set_minor_locator(yminorLocator)
 plt.show()
+
+# 得到某一层次聚类结果
+from scipy.cluster.hierarchy import fcluster
+labels = fcluster(mergings, 6, criterion='distance')
+
+df = pd.DataFrame({'labels': labels, 'varieties': varieties})
+ct = pd.crosstab(df['labels'], df['varieties'])
+print(ct)
